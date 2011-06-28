@@ -3,7 +3,7 @@ require 'bundler/capistrano'
 # $:.unshift(File.expand_path('./lib', ENV['rvm_path'])) # Add RVM's lib directory to the load path.
 # require "rvm/capistrano"                  # Load RVM's capistrano plugin
 
-set :application, "flames"
+set :application, "flames_server"
 set :repository,  "git@git.batnag.org:flames.git"
 
 set :scm, :git
@@ -12,9 +12,8 @@ role :web, "eregion.batnag.org"                           # Your HTTP server, Ap
 role :app, "eregion.batnag.org"                           # This may be the same as your `Web` server
 role :db,  "eregion.batnag.org", :primary => true         # This is where Rails migrations will run
 
-set :deploy_subdir, "rails_app"
 set :deploy_to,   "/opt/apps/#{application}"
-set :deploy_via,  :remote_cache_with_subdir
+set :deploy_via,  :remote_cache
 
 set :user, "deploy"
 set :use_sudo, false
