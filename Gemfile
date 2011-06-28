@@ -11,9 +11,7 @@ gem 'formtastic'
 gem 'haml'
 gem 'omnisocial', :git => 'git://github.com/icelab/omnisocial.git'
 gem 'web-app-theme'
-
-gem 'sqlite3'
-gem 'sqlite3-ruby', :require => 'sqlite3'
+gem 'mysql2', '<= 0.2.7'
 
 group :development, :test do
   gem 'annotate'
