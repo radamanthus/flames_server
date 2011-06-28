@@ -1,0 +1,7 @@
+rails_app/.bundle
+rails_app/db/*.sqlite3
+rails_app/log/*.log
+rails_app/tmp/
+tmp/
+.DS_Store
+

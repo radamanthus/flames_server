@@ -1,0 +1,24 @@
+%h2 Stories
+%div{class:'block'}
+  %table{border:1, class:'table'}
+    %tr
+      %th Code
+      %th Position
+      %th Title
+      %th Body
+      %th &nbsp
+    - @stories.each do |story|
+      %tr
+        %td 
+          = story.code
+        %td 
+          = story.position
+        %td 
+          = story.title
+        %td 
+          = story.body
+        %td
+          = link_to 'Edit', edit_story_path(story)
+          = link_to 'Delete', story_path(story), :method => :delete, :confirm => "Are you sure?" 
+
+  = link_to 'New story', new_story_path  

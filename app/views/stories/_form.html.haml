@@ -1,0 +1,13 @@
+%div{class:'content inner'}
+  - semantic_form_for @story do |f|
+    - f.inputs do
+      = f.input :code
+      %br
+      = f.input :position
+      %br
+      = f.input :title
+      %br
+      = f.input :body
+      %br
+    - f.buttons do
+      = f.commit_button label:'Save'

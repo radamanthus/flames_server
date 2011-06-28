@@ -1,0 +1,11 @@
+<% if current_user -%>
+  <p>
+    Welcome, <%= current_user.login_account.name %>!
+    <%= image_tag current_user.facebook_user.picture %>
+  </p>
+  
+<% else -%>
+  <p>
+    Welcome! Please <%= link_to 'login or sign up using your facebook account', '/auth/facebook' -%>
+  </p>
+<% end -%>
