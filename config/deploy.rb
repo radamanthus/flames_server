@@ -1,10 +1,12 @@
-require 'bundler/capistrano'
+# require 'bundler/capistrano'
 
-# $:.unshift(File.expand_path('./lib', ENV['rvm_path'])) # Add RVM's lib directory to the load path.
-# require "rvm/capistrano"                  # Load RVM's capistrano plugin
+$:.unshift(File.expand_path('./lib', ENV['rvm_path'])) # Add RVM's lib directory to the load path.
+require "rvm/capistrano"                  # Load RVM's capistrano plugin
+set :rvm_ruby_string, '1.9.2-p180'
+set :rvm_type, :user
 
 set :application, "flames_server"
-set :repository,  "git@git.batnag.org:flames.git"
+set :repository,  "git@git.batnag.org:flames_server.git"
 
 set :scm, :git
 
