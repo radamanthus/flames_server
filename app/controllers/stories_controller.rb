@@ -1,7 +1,7 @@
 class StoriesController < ApplicationController
   include ApplicationHelper
   
-  before_filter :require_login
+  before_filter :require_login, :except => [:show]
   
   def create
     @story = Story.new(params[:story])
@@ -40,7 +40,16 @@ class StoriesController < ApplicationController
   end
 
   def show
-    @story = Story.find(params[:id])
+    respond_to do |format|
+      format.html { @story = Story.find(params[:id]) }
+      format.json do
+        @story = Story.find_by_code_and_position(params[:code], params[:position])
+        unless @story
+          @story = Story.find_by_code(params[:code])
+        end
+        render :text => @story.body
+      end
+    end
   end
 
   def update
