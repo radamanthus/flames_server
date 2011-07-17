@@ -57,6 +57,6 @@ class StoriesController < ApplicationController
     @story.update_attributes(params[:story])
 
     flash[:notice] = "The story for result '#{@story.code}', position #{@story.position} has been updated."
-    redirect_to :index
+    redirect_to stories_path
   end
 end
