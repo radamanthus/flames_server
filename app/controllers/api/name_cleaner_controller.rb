@@ -1,5 +1,5 @@
 class Api::NameCleanerController < ApplicationController
-  def clean_up
+  def show
     names = params[:data]
     p names.inspect
  end
