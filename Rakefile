@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-MyAwesomeFacebookApp::Application.load_tasks
+FlamesYourFriends::Application.load_tasks
