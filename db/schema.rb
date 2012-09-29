@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,39 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110625191653) do
-
-  create_table "login_accounts", :force => true do |t|
-    t.string   "type"
-    t.integer  "user_id"
-    t.string   "remote_account_id"
-    t.string   "name"
-    t.string   "login"
-    t.string   "picture_url"
-    t.string   "access_token"
-    t.string   "access_token_secret"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "login_accounts", ["type"], :name => "index_login_accounts_on_type"
-  add_index "login_accounts", ["user_id"], :name => "index_login_accounts_on_user_id"
-
-  create_table "stories", :force => true do |t|
-    t.string   "code"
-    t.string   "title"
-    t.integer  "position"
-    t.text     "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "stories", ["code", "position"], :name => "index_stories_on_code_and_position"
+ActiveRecord::Schema.define(:version => 20120313132547) do
 
   create_table "users", :force => true do |t|
-    t.string   "remember_token"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "email",                  :default => "", :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "facebook_id"
   end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["facebook_id"], :name => "index_users_on_facebook_id", :unique => true
+  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end

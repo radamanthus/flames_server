@@ -1,26 +1,22 @@
-source 'http://rubygems.org'
-
-gem 'rails', '3.0.7'
-
-gem 'cancan'
-gem 'capistrano'
-gem 'decoder'
-gem 'devise'
-gem 'fb_graph'
-gem 'formtastic'
-gem 'haml'
-gem 'omnisocial', :git => 'git://github.com/icelab/omnisocial.git'
-gem 'web-app-theme'
-gem 'mysql2', '<= 0.2.7'
-
-group :development, :test do
-  gem 'annotate'
-	gem 'awesome_print'
-	gem 'capybara'
-	gem 'cucumber'
-	gem 'rspec'	
-	gem 'ruby-debug19', :require => 'ruby-debug'
-  gem 'thin'
+source 'https://rubygems.org'
+gem 'rails', '3.2.8'
+gem 'pg'
+group :assets do
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
+  gem 'uglifier', '>= 1.0.3'
 end
+gem 'jquery-rails'
+gem "rspec-rails", ">= 2.8.1", :group => [:development, :test]
+gem "factory_girl_rails", ">= 1.7.0", :group => :test
+gem "email_spec", ">= 1.2.1", :group => :test
+gem "cucumber-rails", ">= 1.3.0", :group => :test
+gem "capybara", ">= 1.1.2", :group => :test
+gem "database_cleaner", ">= 0.7.1", :group => :test
+gem "launchy", ">= 2.0.5", :group => :test
+gem "devise", ">= 2.0.4"
+gem "omniauth-facebook"
 
-
+group :development do
+  gem 'pry'
+end
